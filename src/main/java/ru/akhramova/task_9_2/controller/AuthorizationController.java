@@ -1,0 +1,20 @@
+package ru.akhramova.task_9_2.controller;
+
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import ru.akhramova.task_9_2.enums.Authorities;
+import ru.akhramova.task_9_2.model.User;
+import ru.akhramova.task_9_2.service.AuthorizationService;
+
+import java.util.List;
+
+@RestController
+public class AuthorizationController {
+    AuthorizationService service = new AuthorizationService();
+
+    @GetMapping("/authorize")
+    public List<Authorities> getAuthorities(@Valid User user) {
+        return service.getAuthorities(user);
+    }
+}
