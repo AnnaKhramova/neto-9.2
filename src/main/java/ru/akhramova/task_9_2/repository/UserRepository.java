@@ -10,15 +10,11 @@ import java.util.List;
 
 @Repository
 public class UserRepository {
-    @Value("${user.name}")
-    private String name;
-    @Value("${user.password}")
-    private String password;
 
     private User authorized;
 
-    public UserRepository() {
-        authorized = new User(name, password);
+    public UserRepository(@Value("${user.user}") String user, @Value("${user.password}") String password) {
+        authorized = new User(user, password);
     }
 
     public List<Authorities> getUserAuthorities(User user) {

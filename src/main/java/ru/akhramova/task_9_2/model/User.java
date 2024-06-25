@@ -9,14 +9,14 @@ import java.util.Objects;
 public class User {
     @NotBlank
     @Size(min = 2)
-    private String name;
+    private String user;
     @NotBlank
     @Size(min = 5)
-    @Pattern(regexp = "/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}")
     private String password;
 
-    public User(String name, String password) {
-        this.name = name;
+    public User(String user, String password) {
+        this.user = user;
         this.password = password;
     }
 
@@ -25,11 +25,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(name, user.name) && Objects.equals(password, user.password);
+        return Objects.equals(this.user, user.user) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, password);
+        return Objects.hash(user, password);
     }
 }
