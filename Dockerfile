@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM bardiir/jdk22-ant:latest
 
 EXPOSE 8080
 
