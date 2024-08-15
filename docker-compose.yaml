@@ -15,3 +15,5 @@ services:
     environment:
       USER_USER: Ivan
       USER_PASSWORD: Frtyui#2
+    depends_on:
+      - app1
